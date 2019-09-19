@@ -1,0 +1,70 @@
+
+<div ng-controller="MyCustomFormController" style="margin: 10px 0px;">
+    <div class="section" >
+        <h4>Platform</h4>
+        <div class="control-group" >
+            <label class="control-label">hostname</label>
+            <div class="controls" >
+                <input type="text" ng-model="config.hostname" ng-required="true" bs-typeahead="columnsPerInputRole['input_role']" />
+                <span class="help-inline">Enter the BlueData controller name or IP address</span>
+            </div>
+        </div>
+        <div class="control-group" >
+            <label class="control-label">Username</label>
+            <div class="controls" >
+                <input type="text" ng-model="config.username" ng-required="true" bs-typeahead="columnsPerInputRole['input_role']" />
+                <span class="help-inline">Enter the BlueData Usernme</span>
+            </div>
+        </div>
+        <div class="control-group" >
+            <label class="control-label">Password</label>
+            <div class="controls" >
+                <input type="password" ng-model="config.password" ng-required="true" bs-typeahead="columnsPerInputRole['input_role']" />
+                <span class="help-inline">Enter the BlueData Password</span>
+            </div>
+        </div>   
+        <div class="control-group" >
+            <div class="controls" >          
+            <button ng-disabled="cluster.hostname != null" type="button" class="btn btn-danger btn-cta-big-mod ng-scope" ng-click="connect()">Connect</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="section" > 
+        <h4>Tenant</h4>
+        <div class="control-group" >
+            <label class="control-label">Tenant Name</label>
+            <div class="controls" >
+                <select ng-model="config.selectedTenant" ng-required="true"
+                        ng-options="v as v['label']['name'] for v in tenants track by v['_links']['self']['href']" 
+                 />
+                <span class="help-inline">Select the BlueData tenant</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="section" >
+        <h4>Application Template</h4>
+        <div class="control-group" >
+            <label class="control-label">Template name</label>
+            <div class="controls" >
+                <select ng-model="config.selectedTemplate" ng-required="true" ng-options="v as v['_embedded']['label']['name'] for (k,v) in templates" />
+                <span class="help-inline">Select the template in the selected tenant</span>
+            </div>
+        </div>
+        <div class="control-group" >
+            <label class="control-label">Cluster name</label>
+            <div class="controls" >
+                <input type="text" ng-model="config.clustername" ng-required="true" bs-typeahead="columnsPerInputRole['input_role']" />
+                <span class="help-inline">Enter the name of the new cluster</span>
+            </div>
+        </div>
+        <div class="control-group" >
+            <label class="control-label">Cluster description</label>
+            <div class="controls" >
+                <textarea line=2 ng-model="config.clusterdescription" ng-required="false" bs-typeahead="columnsPerInputRole['input_role']" />
+                <span class="help-inline">Enter a short description of the new cluster</span>
+            </div>
+        </div>
+    </div>
+</div>

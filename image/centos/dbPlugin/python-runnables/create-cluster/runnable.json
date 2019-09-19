@@ -1,0 +1,18 @@
+{
+    "meta": {
+        "label": "Create Cluster into BlueData tenant",
+        "description": "Create a new cluster by selecting a template defined into the selected tenant.",
+        "icon": "icon-puzzle-piece"
+    },
+    "impersonate": false,
+    "params": [],
+    "permissions": [],
+    "resultType": "HTML",
+    "resultLabel": "my production",
+    "extension": "txt",
+    "mimeType": "text/plain",
+    
+    "paramsTemplate" : "form.html",
+    "paramsModule" : "myplugin.module",
+    "paramsPythonSetup" : "form.py"
+}
